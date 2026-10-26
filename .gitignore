@@ -1,0 +1,58 @@
+# ==================================================================
+# Scout Skill — .gitignore
+#
+# Main rules:
+# - Never commit credentials of any kind
+# - Never commit Claude Code's per-machine session state
+# - Never commit OS/editor cruft
+# ==================================================================
+
+# ----- Credentials (critical) --------------------------------------
+.env
+.env.*
+*.env
+scout-config.json
+*-config.json
+.credentials
+credentials.json
+service-account*.json
+secrets/
+
+# ----- Claude Code per-machine state -------------------------------
+# .claude/ holds session-specific data (permissions, settings)
+# that must not be shared across machines or committed to the repo.
+.claude/
+.claude-session/
+
+# ----- macOS --------------------------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# ----- Editors ------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.obsidian/
+
+# ----- Build / dep cruft (defensive; skill doesn't currently use) --
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# ----- Logs and local scratch --------------------------------------
+*.log
+tmp/
+scratch/
+
+# ----- iCloud sync junk --------------------------------------------
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
